@@ -2,7 +2,7 @@ def call() {
     withCredentials([string(credentialsId: 'nvd-api-key', variable: 'NVD_API_KEY')]) {
 
         dependencyCheck(
-            additionalArguments: "-Dnvd.api.key=${NVD_API_KEY} --scan ./",
+            additionalArguments: "--scan ./ --nvdApiKey ${NVD_API_KEY}",
             odcInstallation: 'OWASP'
         )
     }
